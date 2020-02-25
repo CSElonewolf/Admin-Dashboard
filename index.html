@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Dashboard</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <!--Canvas.Js Line chart --->
+  <script>
+window.onload = function () {
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Sales DataPoints"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 450 },
+			{ y: 414},
+			{ y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+			{ y: 460 },
+			{ y: 450 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 480 },
+			{ y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 510 }
+		]
+	}]
+});
+chart.render();
+}
+</script>
+
+</head>
+
+<body class="bg-light">
+	<!---Navigation section starts-->	
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  <a class="navbar-brand text-warning" href="#"><i class="fas fa-chart-line"></i> Devkant's Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-columns"></i> Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-poll"></i> Posts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-list"></i> Categories</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-users"></i> Users</a>
+      </li>
+  </ul>
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown ">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <i class="fas fa-info"></i> Tech Info
+      </a>
+      <div class="dropdown-menu bg-light">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>  
+     <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li> 
+    </ul>
+  </div>  
+</nav>
+
+<!---Navigation section ends-->	
+
+<div class="bg-info mt-5">
+	<h1 class=" text-light p-4 mb-0 "><i class="fas fa-database"></i> Dashboard</h1>
+	</div>
+
+<!---Button section starts-->	
+<div class="bg-secondary p-3">
+	<div class="row">
+		<div class="col-md-4">
+			<a href="#" class=" btn btn-block btn-primary mb-2"><i class="fas fa-plus-square"></i> ADD POST</a>
+		</div>
+		<div class="col-md-4">
+			<a href="#" class=" btn btn-block btn-warning mb-2"><i class="fas fa-plus-square"></i> ADD CATEGORY</a>
+		</div>
+		<div class="col-md-4">
+			<a href="#" class=" btn btn-block btn-success mb-2"><i class="fas fa-plus-square"></i> ADD USER</a>
+		</div>
+	</div>
+</div>
+<!---Button section end-->	
+
+<div class="bg-light">
+	<div class="row">
+		<!---col-8 section starts-->
+		<div class="col-md-8">
+			<h1 class="text-light bg-danger p-2 mb-0 display-4">Latest Posts</h1>
+			<!--Table section starts -->
+			 <form>
+   				 <div class="input-group mb-2 mt-2">
+      			<input type="text" class="form-control" placeholder="Enter the Name" id="myInput" >
+     				 <div class="input-group-append">
+        				<span class="input-group-text">Search</span>
+      				</div>
+    			</div>
+  			</form>
+	<table class="table">
+    <thead class="thead-dark">
+      <tr>
+      	<th>#</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Date Posted</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+      	<td>1</td>
+        <td>John</td>
+        <td>Doe</td>
+        <td>01/02/2019</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+      <tr>
+      	<td>2</td>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>01/02/2020</td>
+        <td><a href="#" class=" btn  btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+      <tr>
+      	<td>3</td>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>01/02/2023</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+      <tr>
+      	<td>3</td>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>01/02/2023</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+      <tr>
+      	<td>3</td>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>01/02/2023</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+      <tr>
+      	<td>3</td>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>01/02/2023</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+       <tr>
+      	<td>3</td>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>01/02/2023</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+       <tr>
+      	<td>3</td>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>01/02/2023</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+       <tr>
+      	<td>3</td>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>01/02/2023</td>
+        <td><a href="#" class=" btn btn-outline-primary mb-2"><i class="fas fa-plus-square"></i> ADD USER</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!---col-8 section ends-->
+<!-- col-4 section starts--->
+<div class="col-md-4">
+<div class="card border mb-2 shadow mt-2">
+	<div class="bg-primary text-light p-4">
+		<i class="fas fa-list-ul fa-4x"></i>
+		<h2 class="float-right">07<span> Posts</span></h2>
+    </div>
+      <a href="#" class="btn btn-secondary">See Profile</a>
+    </div>
+
+<div class="card border mb-2 shadow">
+	<div class="bg-warning text-light p-4">
+		<i class="fas fa-address-card fa-4x"></i>
+		<h2 class="float-right">08<span> Posts</span></h2>
+    </div>
+      <a href="#" class="btn btn-secondary">See Profile</a>
+    </div>
+
+<div class="card border mb-2 shadow">
+	<div class="bg-success text-light p-4">
+		<i class="fas fa-list-ul fa-4x"></i>
+		<h2 class="float-right">09<span> Posts</span></h2>
+    </div>
+      <a href="#" class="btn btn-secondary">See Profile</a>
+    </div>
+
+    <div class="card border mb-2 shadow">
+	<div class="bg-info text-light p-4">
+		<i class="fas fa-mail-bulk fa-4x"></i>
+		<h2 class="float-right">10<span> Posts</span></h2>
+    </div>
+      <a href="#" class="btn btn-secondary">See Profile</a>
+    </div>
+
+    <div class="card border mb-2 shadow">
+	<div class="bg-danger text-light p-4">
+		<i class="fas fa-address-card fa-4x"></i>
+		<h2 class="float-right">05<span> Posts</span></h2>
+    </div>
+      <a href="#" class="btn btn-secondary">See Profile</a>
+    </div>
+</div>
+<!-- col-4 section ends--->
+</div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<h1 class="text-light bg-info p-2 mb-0 display-4">Line Chart</h1>
+		<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+</body>
+</html>
